@@ -1,8 +1,16 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public float moveSpeed = 5f;
+    public CharacterController characterController;
+
+    public float backwardsSpeedDivide;
+
+    private Vector2 moveInput;
+    private Vector2 rotateInput;
+
     void Start()
     {
         
@@ -11,6 +19,19 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        characterController.Move(moveInput * moveSpeed * Time.deltaTime);
+    }
+
+    public void OnMove(InputAction.CallbackContext context) {
+        moveInput = context.ReadValue<Vector2>();
+
+        if(moveInput.y < 0) {
+            moveInput /= backwardsSpeedDivide;
+        }
+        Debug.Log("moveInput");
+    }
+
+    public void OnRotate(InputAction.CallbackContext context) {
+
     }
 }
