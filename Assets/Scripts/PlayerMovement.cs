@@ -20,9 +20,12 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector2 move = this.transform.TransformDirection(moveInput);
-        characterController.Move(moveInput * moveSpeed * Time.deltaTime);
-        this.transform.Rotate(rotateInput * rotateSpeed * Time.deltaTime);
+        
+        transform.Rotate(new Vector3(0,0,rotateInput.x) * rotateSpeed); //rotate
+
+        Vector2 move = this.transform.TransformDirection(moveInput); //moves it in a direction
+        characterController.Move(move * moveSpeed * Time.deltaTime);
+        
 
     }
 
@@ -32,10 +35,10 @@ public class PlayerMovement : MonoBehaviour
         if(moveInput.y < 0) {
             moveInput /= backwardsSpeedDivide;
         }
-        Debug.Log("moveInput");
     }
 
     public void OnRotate(InputAction.CallbackContext context) {
-        rotateInput = context.ReadValue<Vector2>();
+        rotateInput = -context.ReadValue<Vector2>();
+        Debug.Log("ROT");
     }
 }
