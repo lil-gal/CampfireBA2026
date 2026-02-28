@@ -3,7 +3,6 @@ using UnityEngine;
 [RequireComponent(typeof(CharacterController))]
 public class FishGravity : MonoBehaviour
 {
-    [SerializeField] private float waterGravity = 2f;
     [SerializeField] private float airGravity = 18f;
     [SerializeField] private float waterLevel = 0f;
     [SerializeField] private float waterDrag = 5f;
