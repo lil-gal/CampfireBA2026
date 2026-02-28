@@ -16,5 +16,6 @@ public class GameManager : MonoBehaviour
     }
 
     public void changeScoreBy(float by) { score += by; }
+    public void changeSharkSizeBy(float by) { sharkSize += by; }
 
 }

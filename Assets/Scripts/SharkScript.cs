@@ -26,14 +26,14 @@ public class SharkScript : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision) {
         if (collision == null) { return; }
-        if(collision.tag == "Player") {
+        if(collision.tag == "Hurtbox" || collision.tag == "PlayerCollector") {
             LookAt(collision.transform.position);
             speed = ChaseSpeed;
         }
     }
     private void OnTriggerExit2D(Collider2D collision) {
         if (collision == null) { return; };
-        if (collision.tag == "Player") {
+        if (collision.tag == "Hurtbox" || collision.tag == "PlayerCollector") {
             speed = NormalSpeed;
         }
     }
