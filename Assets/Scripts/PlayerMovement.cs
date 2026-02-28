@@ -40,6 +40,7 @@ public class PlayerMovement : MonoBehaviour
         
         transform.Rotate(new Vector3(0,0,rotateInput.x) * rotateSpeed); //rotate
 
+
         Vector2 move = this.transform.TransformDirection(moveInput); //moves it in a direction
         characterController.Move(move * moveSpeed * Time.deltaTime);
 
