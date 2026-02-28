@@ -24,14 +24,18 @@ public class PlayerMovement : MonoBehaviour
     bool moving;
 
     void Start()
-    {
+    { 
         hurtbox = GetComponentInChildren<BoxCollider2D>();
         gameOverScreen = FindFirstObjectByType<GameOverScript>();
         sprite = GetComponentInChildren<SpriteRenderer>().gameObject;
+        hurtbox.enabled = true;
     }
 
     public void Death() {
-        Debug.Log("DIED");
+        hurtbox.enabled = false;
+        gameOverScreen.ShowGameOver = true;
+        gameOverScreen.setScores(gameManager.score); 
+        GameSounds.instance.PlaySoundEffect("death");
     }
 
     public void UpdateStats() {

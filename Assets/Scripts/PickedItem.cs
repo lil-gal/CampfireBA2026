@@ -18,6 +18,7 @@ public class PickedItem : MonoBehaviour
             gameManager.changeScoreBy(points);
             collision.transform.parent.GetComponent<PlayerMovement>().UpdateStats();
             Destroy(transform.parent.gameObject);
+            GameSounds.instance.PlaySoundEffect("collect");
         }
     }
 }
