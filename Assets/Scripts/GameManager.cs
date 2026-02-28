@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
 
 
 
-    public void changeSpeedBy(float by) { moveSpeed += by; }
+    public void changeSpeedBy(float by) { moveSpeed += by; if (moveSpeed < 1) { moveSpeed = 1; } }
 
     public void changeScoreBy(float by) { score += by; }
     public void changeSharkSizeBy(float by) { sharkSize += by; }

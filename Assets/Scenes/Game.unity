@@ -1725,8 +1725,48 @@ MonoBehaviour:
           m_CallState: 2
     icon: {fileID: -2983090718515566234, guid: c34039bbafcfb0b4cbb698c789fe9d04, type: 3}
   - rarity: 5
-    name: Speedster
-    benefits: Speed +10
+    name: Slowpoke
+    benefits: 
+    demerits: Speed -10
+    method:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1268468502}
+          m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+          m_MethodName: changeSpeedBy
+          m_Mode: 4
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: -10
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    icon: {fileID: 21300000, guid: 57464a06e2fc9e14ca8931694c451972, type: 3}
+  - rarity: 70
+    name: small hands
+    benefits: Magnet +1
+    demerits: 
+    method:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1268468502}
+          m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+          m_MethodName: changeCollectorBy
+          m_Mode: 4
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 1
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    icon: {fileID: 4877825377717948546, guid: 4cd69415597b5b341918520bc4dddc21, type: 3}
+  - rarity: 70
+    name: small speed
+    benefits: Speed +1
     demerits: 
     method:
       m_PersistentCalls:
@@ -1739,7 +1779,27 @@ MonoBehaviour:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
-            m_FloatArgument: 10
+            m_FloatArgument: 1
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    icon: {fileID: -2983090718515566234, guid: c34039bbafcfb0b4cbb698c789fe9d04, type: 3}
+  - rarity: 70
+    name: Hidden
+    benefits: Stealth +1
+    demerits: 
+    method:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1268468502}
+          m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+          m_MethodName: changeSharkSizeBy
+          m_Mode: 4
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: -1
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
