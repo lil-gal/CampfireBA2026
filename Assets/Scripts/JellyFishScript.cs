@@ -13,6 +13,9 @@ public class JellyFishScript : MonoBehaviour
     float timer;
     bool up = false;
 
+    public float amplitude = 5f;   // How far it rotates (degrees)
+    public float frequency = 3f;   // How fast it jiggles
+
     Rigidbody2D rb;
     void Start()
     {
@@ -26,6 +29,7 @@ public class JellyFishScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // bounce
         if (timer > 0) {
             int times = 1;
 
@@ -35,12 +39,16 @@ public class JellyFishScript : MonoBehaviour
             
             rb.linearVelocityY = times * Time.deltaTime * 100 * (bounceDistance/timeToBounce);
 
-            
-
             timer-=Time.deltaTime;
         } else {
             timer = timeToBounce;
             up = !up;
         }
+
+        
+        float angle = Mathf.Sin(Time.time * frequency) * amplitude;
+        transform.localRotation = Quaternion.Euler(0f, 0f, angle);
+
+        transform.position = transform.position + new Vector3(Mathf.Sin(Time.time * 10f), 0f, 0f) / 200;
     }
 }
