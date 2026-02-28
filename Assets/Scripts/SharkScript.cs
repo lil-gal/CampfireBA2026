@@ -2,34 +2,32 @@ using UnityEngine;
 
 public class SharkScript : MonoBehaviour
 {
-    CapsuleCollider2D capsule;
+    CircleCollider2D detection_collider;
     GameManager gameManager;
     Rigidbody2D rb;
+    float speed;
 
     public float ChaseSpeed = 8f;
     public float NormalSpeed = 3f;
-    float speed;
-    void Start()
-    {
-        speed = NormalSpeed;
+
+    void Start() {
         rb = GetComponent<Rigidbody2D>();
-        capsule = GetComponent<CapsuleCollider2D>();
-        gameManager = GameObject.FindWithTag("GameController").gameObject.GetComponent<GameManager>();
-        capsule.size = new Vector2(gameManager.sharkSize, gameManager.sharkSize+3);
+        detection_collider = GetComponent<CircleCollider2D>();
+
+        speed = NormalSpeed;
+        gameManager = FindFirstObjectByType<GameManager>();
+        detection_collider.radius = gameManager.sharkSize;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-        Vector2 move = this.transform.TransformDirection(Vector2.up);
+    void Update() {
+        Vector2 move = transform.TransformDirection(Vector2.up);
         rb.linearVelocity = move * speed;
     }
 
     private void OnTriggerStay2D(Collider2D collision) {
         if (collision == null) { return; }
         if(collision.tag == "Player") {
-            transform.LookAt(collision.transform);
+            LookAt(collision.transform.position);
             speed = ChaseSpeed;
         }
     }
@@ -38,5 +36,10 @@ public class SharkScript : MonoBehaviour
         if (collision.tag == "Player") {
             speed = NormalSpeed;
         }
+    }
+
+    private void LookAt(Vector3 target) {
+        var distance = (target-transform.position).normalized;
+        rb.MoveRotation(-Mathf.Atan2(distance.x, distance.y)*Mathf.Rad2Deg);
     }
 }
