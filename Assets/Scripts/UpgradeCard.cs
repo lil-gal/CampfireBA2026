@@ -17,7 +17,8 @@ public class UpgradeCard
 
     public Rarities rarity;
     public string name;
-    public string description;
+    public string benefits;
+    public string demerits;
 
     public UnityEvent<float> method;
     public Sprite icon;

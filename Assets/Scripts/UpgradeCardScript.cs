@@ -7,18 +7,21 @@ public class UpgradeCardScript : MonoBehaviour
     public UpgradeCard card;
 
     public TextMeshProUGUI Name;
-    public TextMeshProUGUI Description;
+    public TextMeshProUGUI Benefits;
+    public TextMeshProUGUI Demerits;
     public Image img;
 
     void Awake()
     {
         Name = transform.Find("Name").gameObject.GetComponent<TextMeshProUGUI>();
-        Description = transform.Find("Desc").gameObject.GetComponent<TextMeshProUGUI>();
+        Benefits = transform.Find("Benefits").gameObject.GetComponent<TextMeshProUGUI>();
+        Demerits = transform.Find("Demerits").gameObject.GetComponent<TextMeshProUGUI>();
     }
 
     private void Start() {
         Name.text = card.name;
-        Description.text = card.description;
+        Benefits.text = card.benefits;
+        Demerits.text = card.demerits;
         //img = GetComponentInChildren<Image>();
 
         if (img != null) {

@@ -301,7 +301,7 @@ GameObject:
   - component: {fileID: 414777047}
   m_Layer: 0
   m_Name: sprite
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -392,7 +392,7 @@ GameObject:
   - component: {fileID: 654608047}
   m_Layer: 0
   m_Name: HurtBox
-  m_TagString: Player
+  m_TagString: Hurtbox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -446,7 +446,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.0015147217, y: 0.000083927065}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -833,7 +833,8 @@ MonoBehaviour:
   cards:
   - rarity: 70
     name: Speed boost
-    description: Speed +1
+    benefits: Speed+1
+    demerits: Shark-1
     method:
       m_PersistentCalls:
         m_Calls:
@@ -852,7 +853,8 @@ MonoBehaviour:
     icon: {fileID: 21300000, guid: 66a6fa1f6829dd7448fa03f18f253c84, type: 3}
   - rarity: 25
     name: Speed boost2
-    description: Speed +2
+    benefits: 
+    demerits: 
     method:
       m_PersistentCalls:
         m_Calls:
@@ -871,7 +873,8 @@ MonoBehaviour:
     icon: {fileID: 21300000, guid: 66a6fa1f6829dd7448fa03f18f253c84, type: 3}
   - rarity: 5
     name: Speed boost3
-    description: Speed +3
+    benefits: 
+    demerits: 
     method:
       m_PersistentCalls:
         m_Calls:
@@ -906,6 +909,63 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1396350089
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 8466260638949102561, guid: d97e16bddd4ac654fa4d830122ce8813, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -4.438972
+      objectReference: {fileID: 0}
+    - target: {fileID: 8466260638949102561, guid: d97e16bddd4ac654fa4d830122ce8813, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.592946
+      objectReference: {fileID: 0}
+    - target: {fileID: 8466260638949102561, guid: d97e16bddd4ac654fa4d830122ce8813, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8466260638949102561, guid: d97e16bddd4ac654fa4d830122ce8813, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8466260638949102561, guid: d97e16bddd4ac654fa4d830122ce8813, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8466260638949102561, guid: d97e16bddd4ac654fa4d830122ce8813, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8466260638949102561, guid: d97e16bddd4ac654fa4d830122ce8813, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8466260638949102561, guid: d97e16bddd4ac654fa4d830122ce8813, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8466260638949102561, guid: d97e16bddd4ac654fa4d830122ce8813, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8466260638949102561, guid: d97e16bddd4ac654fa4d830122ce8813, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8801273170047399257, guid: d97e16bddd4ac654fa4d830122ce8813, type: 3}
+      propertyPath: m_Name
+      value: Item2
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d97e16bddd4ac654fa4d830122ce8813, type: 3}
 --- !u!1 &1507906922
 GameObject:
   m_ObjectHideFlags: 0
@@ -960,8 +1020,8 @@ MonoBehaviour:
   m_ChildAlignment: 4
   m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 460, y: 800}
-  m_Spacing: {x: 200, y: 0}
+  m_CellSize: {x: 600, y: 1000}
+  m_Spacing: {x: 50, y: 0}
   m_Constraint: 0
   m_ConstraintCount: 2
 --- !u!114 &1507906925
@@ -1011,7 +1071,7 @@ RectTransform:
   m_GameObject: {fileID: 1507906922}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.8, y: 0.7, z: 1}
+  m_LocalScale: {x: 0.9, y: 0.8, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 686674550}
@@ -1607,3 +1667,4 @@ SceneRoots:
   - {fileID: 2012811880}
   - {fileID: 2100844407}
   - {fileID: 1981421287}
+  - {fileID: 1396350089}
