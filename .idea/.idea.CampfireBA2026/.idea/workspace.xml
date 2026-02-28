@@ -6,8 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="2f25eab3-b763-49aa-bb73-23c1960864b9" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CampfireBA2026/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CampfireBA2026/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Game.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ParalaxBG.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ParalaxBG.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CameraTargetScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CameraTargetScript.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerMovement.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ProgressBar.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ProgressBar.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,7 +110,7 @@
       <option name="presentableId" value="Default" />
       <updated>1772281138249</updated>
       <workItem from="1772281139962" duration="4289000" />
-      <workItem from="1772295283183" duration="2458000" />
+      <workItem from="1772295283183" duration="10382000" />
     </task>
     <servers />
   </component>
