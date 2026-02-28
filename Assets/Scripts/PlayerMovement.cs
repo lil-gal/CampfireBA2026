@@ -19,6 +19,8 @@ public class PlayerMovement : MonoBehaviour
     public GameManager gameManager;
     public upgradePanelScript upgradePanel;
 
+    public bool isAlive = true;
+
     private GameObject sprite;
 
     bool moving;
@@ -29,6 +31,7 @@ public class PlayerMovement : MonoBehaviour
         gameOverScreen = FindFirstObjectByType<GameOverScript>();
         sprite = GetComponentInChildren<SpriteRenderer>().gameObject;
         hurtbox.enabled = true;
+        isAlive = true;
     }
 
     public void Death() {
@@ -36,6 +39,7 @@ public class PlayerMovement : MonoBehaviour
         gameOverScreen.ShowGameOver = true;
         gameOverScreen.setScores(gameManager.score); 
         GameSounds.instance.PlaySoundEffect("death");
+        isAlive = false;
     }
 
     public void UpdateStats() {
@@ -46,11 +50,18 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         
-        transform.Rotate(new Vector3(0,0,rotateInput.x) * rotateSpeed); //rotate
 
+        if (!isAlive) {
+            moveInput = Vector2.zero;
+            rotateInput = Vector2.zero;
+            moving = false;
+        }
+
+        transform.Rotate(new Vector3(0,0,rotateInput.x) * rotateSpeed); //rotate
 
         Vector2 move = this.transform.TransformDirection(moveInput); //moves it in a direction
         characterController.Move(move * moveSpeed * Time.deltaTime);
+
 
         //rotation of the sprite
         if (moving) {

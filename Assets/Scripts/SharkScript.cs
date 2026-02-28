@@ -10,6 +10,8 @@ public class SharkScript : MonoBehaviour
     public float ChaseSpeed = 8f;
     public float NormalSpeed = 3f;
 
+    private float water_level = 0; //its not like this will change..
+
     void Start() {
         rb = GetComponent<Rigidbody2D>();
         detection_collider = GetComponent<CircleCollider2D>();
@@ -21,19 +23,24 @@ public class SharkScript : MonoBehaviour
 
     void Update() {
         Vector2 move = transform.TransformDirection(Vector2.up);
-        rb.linearVelocity = move * speed;
+        if (transform.position.y<water_level) {
+            rb.bodyType = RigidbodyType2D.Kinematic;
+            rb.linearVelocity = move * speed;
+        } else 
+            rb.bodyType = RigidbodyType2D.Dynamic;
     }
 
     private void OnTriggerStay2D(Collider2D collision) {
         if (collision == null) { return; }
-        if(collision.tag == "Hurtbox" || collision.tag == "PlayerCollector") {
+        var player = collision.transform.parent;
+        if (collision.tag == "Hurtbox" && player.GetComponent<PlayerMovement>().isAlive) {
             LookAt(collision.transform.position);
             speed = ChaseSpeed;
         }
     }
     private void OnTriggerExit2D(Collider2D collision) {
         if (collision == null) { return; };
-        if (collision.tag == "Hurtbox" || collision.tag == "PlayerCollector") {
+        if (collision.tag == "Hurtbox") {
             speed = NormalSpeed;
         }
     }

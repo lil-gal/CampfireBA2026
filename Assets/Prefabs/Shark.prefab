@@ -81,7 +81,7 @@ CapsuleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 1.09883745e-16, y: -0.003487047}
-  m_Size: {x: 0.79905206, y: 1.7892972}
+  m_Size: {x: 0.21, y: 0.65}
   m_Direction: 0
 --- !u!1 &3149292717361622239
 GameObject:
@@ -191,7 +191,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   ChaseSpeed: 6
-  NormalSpeed: 3
+  NormalSpeed: 0.3
 --- !u!50 &2065597590092918415
 Rigidbody2D:
   serializedVersion: 5

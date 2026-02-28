@@ -3,11 +3,11 @@ using UnityEngine.Events;
 
 public class PickedItem : MonoBehaviour
 {
-    float points;
+    public float points;
     GameManager gameManager;
     void Start()
     {
-        gameManager = GameObject.FindWithTag("GameController").gameObject.GetComponent<GameManager>();
+        gameManager = FindAnyObjectByType<GameManager>();
         points = -transform.position.y;
     }
 
