@@ -29,6 +29,6 @@ public class GameManager : MonoBehaviour
     public void changeSharkSizeBy(float by) { sharkSize += by; }
 
     public void changeCollectorBy(float by) {
-        GameObject.FindWithTag("PlayerCollector").GetComponent<CircleCollider2D>().radius += by;
+        GameObject.FindWithTag("PlayerCollector").GetComponent<CapsuleCollider2D>().size += new Vector2(by, by);
     }
 }

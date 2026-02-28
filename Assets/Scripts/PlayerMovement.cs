@@ -6,7 +6,7 @@ public class PlayerMovement : MonoBehaviour
     public float moveSpeed;
 
     private BoxCollider2D hurtbox;
-    private GameOverScript gameOverScreen;
+    public GameOverScript gameOverScreen;
 
     public CharacterController characterController;
     public float rotateSpeed = 10f;
@@ -36,7 +36,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         hurtbox = GetComponentInChildren<BoxCollider2D>();
-        gameOverScreen = FindFirstObjectByType<GameOverScript>();
+        gameOverScreen = FindFirstObjectByType<GameOverScript>(FindObjectsInactive.Include);
         sprite = GetComponentInChildren<SpriteRenderer>().gameObject;
         hurtbox.enabled = true;
         isAlive = true;
@@ -44,6 +44,8 @@ public class PlayerMovement : MonoBehaviour
 
     public void Death() {
         hurtbox.enabled = false;
+        gameOverScreen.transform.parent.gameObject.SetActive(true);
+        gameOverScreen.gameObject.SetActive(true);
         gameOverScreen.ShowGameOver = true;
         gameOverScreen.setScores(gameManager.score);
         GameSounds.instance.PlaySoundEffect("death");
@@ -126,5 +128,9 @@ public class PlayerMovement : MonoBehaviour
     public void OnRotate(InputAction.CallbackContext context) {
         rotateInput = -context.ReadValue<Vector2>();
     }
-    
+
+    public void Temp(InputAction.CallbackContext context) {
+        if (!context.started) { return; }
+        upgradePanel.LevelUp();
+    }
 }
