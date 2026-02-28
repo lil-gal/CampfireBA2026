@@ -1,9 +1,10 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public UpgradeCard card;
+    public List<UpgradeCard> cards;
     public float moveSpeed = 10;
 
     

@@ -21,6 +21,7 @@ public class UpgradeCard
 
     public UnityEvent<float> method;
     public float incrementBy;
+    public Sprite icon;
 
     public void Take() {
         if (method != null) {

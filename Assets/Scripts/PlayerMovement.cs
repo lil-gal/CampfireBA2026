@@ -16,7 +16,7 @@ public class PlayerMovement : MonoBehaviour
 
     public GameManager gameManager;
 
-    public GameObject sprite;
+    private GameObject sprite;
 
     bool moving;
 
@@ -70,9 +70,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void Temp(InputAction.CallbackContext context) {
         if (!context.started) { return; }
-
-        gameManager.card.Take();
-
-        UpdateStats();
+        GameObject.FindWithTag("UpgradesPanel").GetComponent<upgradePanelScript>().LevelUp();
     }
+    
 }
