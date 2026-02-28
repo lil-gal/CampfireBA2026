@@ -12,7 +12,6 @@ public class PickedItem : MonoBehaviour
 
 
     private void OnTriggerEnter2D(Collider2D collision) {
-        Debug.Log("SSS");
         if (collision == null) { return; }
         if (collision.tag == "PlayerCollector") {
             gameManager.addScore(points);
