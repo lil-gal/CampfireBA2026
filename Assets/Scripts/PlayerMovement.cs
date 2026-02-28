@@ -1,8 +1,8 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerMovement : MonoBehaviour
-{
+public class PlayerMovement : MonoBehaviour {
+
     public float moveSpeed;
 
     private BoxCollider2D hurtbox;
@@ -11,9 +11,11 @@ public class PlayerMovement : MonoBehaviour
     public CharacterController characterController;
     public float rotateSpeed = 10f;
     public float backwardsSpeedDivide;
+    public float drag = 5f;
 
     private Vector2 moveInput;
     private Vector2 rotateInput;
+    private Vector2 currentVelocity;
 
     public GameManager gameManager;
     public upgradePanelScript upgradePanel;
@@ -33,8 +35,7 @@ public class PlayerMovement : MonoBehaviour
     [HideInInspector] public float lowerBoundaryY = float.MinValue;
     [HideInInspector] public float upperBoundaryY = float.MaxValue;
 
-    void Start()
-    {
+    void Start() {
         hurtbox = GetComponentInChildren<BoxCollider2D>();
         gameOverScreen = FindFirstObjectByType<GameOverScript>(FindObjectsInactive.Include);
         sprite = GetComponentInChildren<SpriteRenderer>().gameObject;
@@ -62,8 +63,7 @@ public class PlayerMovement : MonoBehaviour
         bounceRotationTarget = transform.eulerAngles.z + 180f;
     }
 
-    void Update()
-    {
+    void Update() {
         if (!isAlive) {
             moveInput = Vector2.zero;
             rotateInput = Vector2.zero;
@@ -80,18 +80,14 @@ public class PlayerMovement : MonoBehaviour
             float newZ = Mathf.LerpAngle(currentZ, bounceRotationTarget, Time.deltaTime * bounceRotationSpeed);
             transform.rotation = Quaternion.Euler(0f, 0f, newZ);
 
-            moveInput = Vector2.zero;
+            currentVelocity = Vector2.zero;
             move = this.transform.TransformDirection(Vector2.up);
         } else {
-            move = this.transform.TransformDirection(moveInput);
+            currentVelocity = Vector2.Lerp(currentVelocity, moveInput, Time.deltaTime * drag);
+            move = this.transform.TransformDirection(currentVelocity);
         }
 
         if (transform.position.y <= lowerBoundaryY && move.y < 0) {
-            move.y = 0;
-            if (!isBouncing) Bounce();
-        }
-
-        if (transform.position.y >= upperBoundaryY && move.y > 0) {
             move.y = 0;
             if (!isBouncing) Bounce();
         }
