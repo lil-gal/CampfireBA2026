@@ -5,6 +5,8 @@ public class PlayerMovement : MonoBehaviour
 {
     public float moveSpeed;
 
+    private BoxCollider2D hurtbox;
+    private GameOverScript gameOverScreen;
 
     public CharacterController characterController;
     public float rotateSpeed = 10f;
@@ -23,10 +25,18 @@ public class PlayerMovement : MonoBehaviour
 
     void Start()
     {
+        hurtbox = GetComponentInChildren<BoxCollider2D>();
+        gameOverScreen = FindFirstObjectByType<GameOverScript>();
         sprite = GetComponentInChildren<SpriteRenderer>().gameObject;
+        hurtbox.enabled = true;
+
+        gameOverScreen.ShowGameOver = false;
     }
 
     public void Death() {
+        hurtbox.enabled = false;
+        gameOverScreen.ShowGameOver = true;
+        gameOverScreen.setScores(gameManager.score);
         Debug.Log("DIED");
     }
 

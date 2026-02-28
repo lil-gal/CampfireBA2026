@@ -16,6 +16,19 @@ public class GameOverScript : MonoBehaviour {
         ScoreText.text = $"score: {score}\nhiscore: {hiscore}";
     }
 
+    public void setScores(int score) {
+        ScoreText.text = $"score: {score}";
+    }
+
+    public void setScores(float score, float hiscore) {
+        ScoreText.text = $"score: {score}\nhiscore: {hiscore}";
+    } 
+
+    public void setScores(float score) {
+        ScoreText.text = $"score: {score}";
+    }
+
+
     void FixedUpdate() {
         if (ShowGameOver) y_pos /= Smoothness;
         else y_pos += (YOffScreen-y_pos)/Smoothness;
