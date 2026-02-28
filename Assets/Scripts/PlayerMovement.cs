@@ -26,6 +26,10 @@ public class PlayerMovement : MonoBehaviour
         sprite = GetComponentInChildren<SpriteRenderer>().gameObject;
     }
 
+    public void Death() {
+        Debug.Log("DIED");
+    }
+
     public void UpdateStats() {
         moveSpeed = gameManager.moveSpeed;
     }
@@ -41,7 +45,7 @@ public class PlayerMovement : MonoBehaviour
 
         //rotation of the sprite
         if (moving) {
-            float amplitude = 10f;   // How far it rotates (degrees)
+            float amplitude = moveSpeed;   // How far it rotates (degrees)
             float frequency = 3f;   // How fast it jiggles
             float angle = Mathf.Sin(Time.time * frequency) * amplitude;
             sprite.transform.localRotation = Quaternion.Euler(0f, 0f, angle);
