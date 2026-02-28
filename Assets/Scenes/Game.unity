@@ -1569,7 +1569,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   cards:
   - rarity: 70
-    name: Speed boost
+    name: Speed Profit
     benefits: Speed +3
     demerits: Stealth -1
     method:
@@ -1599,7 +1599,151 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-    icon: {fileID: 21300000, guid: 66a6fa1f6829dd7448fa03f18f253c84, type: 3}
+    icon: {fileID: -2983090718515566234, guid: c34039bbafcfb0b4cbb698c789fe9d04, type: 3}
+  - rarity: 5
+    name: Bigger Hands
+    benefits: Magnet +5
+    demerits: 
+    method:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1268468502}
+          m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+          m_MethodName: changeCollectorBy
+          m_Mode: 4
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 5
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    icon: {fileID: 4877825377717948546, guid: 4cd69415597b5b341918520bc4dddc21, type: 3}
+  - rarity: 25
+    name: Equivalent Exchange
+    benefits: Magnet +1
+    demerits: Speed -1
+    method:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1268468502}
+          m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+          m_MethodName: changeCollectorBy
+          m_Mode: 4
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 1
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 1268468502}
+          m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+          m_MethodName: changeSpeedBy
+          m_Mode: 4
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: -1
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    icon: {fileID: 4877825377717948546, guid: 4cd69415597b5b341918520bc4dddc21, type: 3}
+  - rarity: 70
+    name: Hidden Slowpoke
+    benefits: Stealth +2
+    demerits: Speed -1
+    method:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1268468502}
+          m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+          m_MethodName: changeSharkSizeBy
+          m_Mode: 4
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: -2
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 1268468502}
+          m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+          m_MethodName: changeSpeedBy
+          m_Mode: 4
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: -1
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    icon: {fileID: 2202170769900746405, guid: f88f8d4bafea3aa45b5b2db2d3f9a628, type: 3}
+  - rarity: 25
+    name: Ninja
+    benefits: Stealth +1
+    demerits: 
+    method:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1268468502}
+          m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+          m_MethodName: changeSharkSizeBy
+          m_Mode: 4
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: -1
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    icon: {fileID: 2202170769900746405, guid: f88f8d4bafea3aa45b5b2db2d3f9a628, type: 3}
+  - rarity: 5
+    name: Speedster
+    benefits: Speed +10
+    demerits: 
+    method:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1268468502}
+          m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+          m_MethodName: changeSpeedBy
+          m_Mode: 4
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 10
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    icon: {fileID: -2983090718515566234, guid: c34039bbafcfb0b4cbb698c789fe9d04, type: 3}
+  - rarity: 5
+    name: Speedster
+    benefits: Speed +10
+    demerits: 
+    method:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1268468502}
+          m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+          m_MethodName: changeSpeedBy
+          m_Mode: 4
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 10
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    icon: {fileID: -2983090718515566234, guid: c34039bbafcfb0b4cbb698c789fe9d04, type: 3}
   moveSpeed: 10
   sharkSize: 4
   score: 0

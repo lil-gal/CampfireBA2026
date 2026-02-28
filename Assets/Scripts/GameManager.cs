@@ -11,11 +11,13 @@ public class GameManager : MonoBehaviour
 
 
 
-    public void changeSpeedBy(float by) {
-        moveSpeed += by;
-    }
+    public void changeSpeedBy(float by) { moveSpeed += by; }
 
     public void changeScoreBy(float by) { score += by; }
     public void changeSharkSizeBy(float by) { sharkSize += by; }
+
+    public void changeCollectorBy(float by) {
+        GameObject.FindWithTag("PlayerCollector").GetComponent<CapsuleCollider2D>().size += new Vector2(by,by);
+    }
 
 }
