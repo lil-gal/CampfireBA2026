@@ -3,7 +3,7 @@ using UnityEngine.Events;
 
 public class PickedItem : MonoBehaviour
 {
-    float points;
+    public float points;
     GameManager gameManager;
     void Start()
     {

@@ -19,8 +19,8 @@ public class ItemSpawnerScript : MonoBehaviour {
     [System.Serializable]
     public class ItemSpawnerEntry {
         public GameObject PrefabToSpawn;
-        public float MinY;
         public float MaxY;
+        public float MinY;
         public float Density = 10; // in one unity unit
         public float DensityMultiplier = 1; // for external configuring; might remove it if useless.. it might be useless--
         public bool Disabled = false;

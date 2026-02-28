@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1470197395e4a134ab198df03ced7b40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PickedItem
-  points: 200
+  points: 400
 --- !u!70 &2022005088740069351
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

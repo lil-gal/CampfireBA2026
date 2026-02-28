@@ -191,7 +191,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   ChaseSpeed: 6
-  NormalSpeed: 3
+  NormalSpeed: 0.3
 --- !u!50 &2065597590092918415
 Rigidbody2D:
   serializedVersion: 5
