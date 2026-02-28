@@ -28,15 +28,9 @@ public class PlayerMovement : MonoBehaviour
         hurtbox = GetComponentInChildren<BoxCollider2D>();
         gameOverScreen = FindFirstObjectByType<GameOverScript>();
         sprite = GetComponentInChildren<SpriteRenderer>().gameObject;
-        hurtbox.enabled = true;
-
-        gameOverScreen.ShowGameOver = false;
     }
 
     public void Death() {
-        hurtbox.enabled = false;
-        gameOverScreen.ShowGameOver = true;
-        gameOverScreen.setScores(gameManager.score);
         Debug.Log("DIED");
     }
 
