@@ -33,14 +33,14 @@ public class SharkScript : MonoBehaviour
     private void OnTriggerStay2D(Collider2D collision) {
         if (collision == null) { return; }
         var player = collision.transform.parent;
-        if (player.tag == "Player" && player.GetComponent<PlayerMovement>().isAlive) {
+        if (collision.tag == "Hurtbox" && player.GetComponent<PlayerMovement>().isAlive) {
             LookAt(collision.transform.position);
             speed = ChaseSpeed;
         }
     }
     private void OnTriggerExit2D(Collider2D collision) {
         if (collision == null) { return; };
-        if (collision.transform.parent.tag == "Player") {
+        if (collision.tag == "Hurtbox") {
             speed = NormalSpeed;
         }
     }

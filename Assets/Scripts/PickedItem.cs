@@ -7,7 +7,7 @@ public class PickedItem : MonoBehaviour
     GameManager gameManager;
     void Start()
     {
-        gameManager = GameObject.FindWithTag("GameController").gameObject.GetComponent<GameManager>();
+        gameManager = FindAnyObjectByType<GameManager>();
         points = -transform.position.y;
     }
 
