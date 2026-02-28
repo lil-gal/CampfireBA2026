@@ -88,5 +88,5 @@ public class PlayerMovement : MonoBehaviour
         if (!context.started) { return; }
         upgradePanel.LevelUp();
     }
-    
+
 }

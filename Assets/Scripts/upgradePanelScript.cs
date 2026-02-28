@@ -13,26 +13,26 @@ public class upgradePanelScript : MonoBehaviour
 
     private void Awake() {
         gameManager = FindAnyObjectByType<GameManager>();
-        DeactivateCanvas();
+        DeactivateSelf();
     }
     public void LevelUp() {
         for (int i = 0; i < cardSlots; i++) {
             GameObject card = Instantiate(cardPrefab, transform); 
             card.GetComponent<UpgradeCardScript>().card = getRandomCard();
         }
-        ActivateCanvas();
+        ActivateSelf();
     }
 
     public void AfterPick() {
         DestroyChildren();
-        DeactivateCanvas();
+        DeactivateSelf();
         
     }
-    void DeactivateCanvas() {
-        transform.parent.gameObject.SetActive(false);
+    void DeactivateSelf() {
+        gameObject.SetActive(false);
     }
-    void ActivateCanvas() {
-        transform.parent.gameObject.SetActive(true);
+    void ActivateSelf() {
+        gameObject.SetActive(true);
     }
 
     void DestroyChildren() {
