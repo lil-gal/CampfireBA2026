@@ -3,7 +3,9 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float moveSpeed = 5f;
+    public float moveSpeed;
+
+
     public CharacterController characterController;
     public float rotateSpeed = 10f;
 
@@ -12,9 +14,19 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 moveInput;
     private Vector2 rotateInput;
 
+    public GameManager gameManager;
+
+    public GameObject sprite;
+
+    bool moving;
+
     void Start()
     {
-        
+        sprite = GetComponentInChildren<SpriteRenderer>().gameObject;
+    }
+
+    public void UpdateStats() {
+        moveSpeed = gameManager.moveSpeed;
     }
 
     // Update is called once per frame
@@ -25,6 +37,16 @@ public class PlayerMovement : MonoBehaviour
 
         Vector2 move = this.transform.TransformDirection(moveInput); //moves it in a direction
         characterController.Move(move * moveSpeed * Time.deltaTime);
+
+        //rotation of the sprite
+        if (moving) {
+            float amplitude = 10f;   // How far it rotates (degrees)
+            float frequency = 3f;   // How fast it jiggles
+            float angle = Mathf.Sin(Time.time * frequency) * amplitude;
+            sprite.transform.localRotation = Quaternion.Euler(0f, 0f, angle);
+        } else {
+            sprite.transform.localRotation = Quaternion.Euler(0f, 0f, 0f);
+        } 
         
 
     }
@@ -35,10 +57,22 @@ public class PlayerMovement : MonoBehaviour
         if(moveInput.y < 0) {
             moveInput /= backwardsSpeedDivide;
         }
+        if (context.canceled) {
+            moving = false;
+        } else {
+            moving = true;
+        }
     }
 
     public void OnRotate(InputAction.CallbackContext context) {
         rotateInput = -context.ReadValue<Vector2>();
-        Debug.Log("ROT");
+    }
+
+    public void Temp(InputAction.CallbackContext context) {
+        if (!context.started) { return; }
+
+        gameManager.card.Take();
+
+        UpdateStats();
     }
 }
