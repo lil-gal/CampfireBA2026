@@ -167,8 +167,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b54b03a2182d3e54fb489fd853744688, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UpgradeCardScript
-  Name: {fileID: 0}
-  Description: {fileID: 0}
+  card:
+    rarity: 0
+    name: 
+    description: 
+    method:
+      m_PersistentCalls:
+        m_Calls: []
+    incrementBy: 0
+    icon: {fileID: 0}
+  Name: {fileID: 7281752622064373996}
+  Description: {fileID: 1982132165840547893}
+  img: {fileID: 6982917405365168094}
 --- !u!1 &4456019533955198834
 GameObject:
   m_ObjectHideFlags: 0
@@ -550,7 +560,7 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_TextWrappingMode: 0
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}

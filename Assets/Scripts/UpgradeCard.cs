@@ -20,12 +20,11 @@ public class UpgradeCard
     public string description;
 
     public UnityEvent<float> method;
-    public float incrementBy;
     public Sprite icon;
 
     public void Take() {
         if (method != null) {
-            method.Invoke(incrementBy);
+            method.Invoke(0);
         }
     }
 

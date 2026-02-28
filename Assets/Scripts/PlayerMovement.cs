@@ -15,6 +15,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 rotateInput;
 
     public GameManager gameManager;
+    public upgradePanelScript upgradePanel;
 
     private GameObject sprite;
 
@@ -70,7 +71,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void Temp(InputAction.CallbackContext context) {
         if (!context.started) { return; }
-        GameObject.FindWithTag("UpgradesPanel").GetComponent<upgradePanelScript>().LevelUp();
+        upgradePanel.LevelUp();
     }
     
 }

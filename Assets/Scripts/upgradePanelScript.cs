@@ -13,12 +13,33 @@ public class upgradePanelScript : MonoBehaviour
 
     private void Awake() {
         gameManager = FindAnyObjectByType<GameManager>();
+        DeactivateCanvas();
     }
     public void LevelUp() {
         for (int i = 0; i < cardSlots; i++) {
-            GameObject card = Instantiate(cardPrefab); 
+            GameObject card = Instantiate(cardPrefab, transform); 
             card.GetComponent<UpgradeCardScript>().card = getRandomCard();
         }
+        ActivateCanvas();
+    }
+
+    public void AfterPick() {
+        DestroyChildren();
+        DeactivateCanvas();
+        
+    }
+    void DeactivateCanvas() {
+        transform.parent.gameObject.SetActive(false);
+    }
+    void ActivateCanvas() {
+        transform.parent.gameObject.SetActive(true);
+    }
+
+    void DestroyChildren() {
+        foreach (Transform child in transform) { 
+            Destroy(child.gameObject);
+        }
+
     }
 
     UpgradeCard getRandomCard(int tries = 0) {
@@ -45,4 +66,6 @@ public class upgradePanelScript : MonoBehaviour
         return rarityCards[num];
 
     }
+
+    
 }

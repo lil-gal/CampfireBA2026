@@ -1,29 +1,34 @@
 using TMPro;
 using UnityEngine;
-using UnityEngine.UIElements;
+using UnityEngine.UI;
 
 public class UpgradeCardScript : MonoBehaviour
 {
     public UpgradeCard card;
 
-    public TextMeshPro Name;
-    public TextMeshPro Description;
+    public TextMeshProUGUI Name;
+    public TextMeshProUGUI Description;
+    public Image img;
 
     void Awake()
     {
-        Name = transform.Find("Name").gameObject.GetComponent<TextMeshPro>();
-        Description = transform.Find("Desc").gameObject.GetComponent<TextMeshPro>();
+        Name = transform.Find("Name").gameObject.GetComponent<TextMeshProUGUI>();
+        Description = transform.Find("Desc").gameObject.GetComponent<TextMeshProUGUI>();
+    }
+
+    private void Start() {
         Name.text = card.name;
         Description.text = card.description;
-        Image img = GetComponent<Image>();
-        
+        //img = GetComponentInChildren<Image>();
+
         if (img != null) {
             img.sprite = card.icon;
         }
-
     }
 
     public void Onclick() {
         card.Take();
+        GameObject.FindWithTag("Player").GetComponent<PlayerMovement>().UpdateStats();
+        transform.parent.GetComponent<upgradePanelScript>().AfterPick();
     }
 }
