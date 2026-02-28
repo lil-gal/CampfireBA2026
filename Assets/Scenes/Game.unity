@@ -1757,6 +1757,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8cb4e03a7e046e479d22197a30546c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameSounds
+  Sounds:
+  - name: death
+    AudioClips:
+    - {fileID: 8300000, guid: 06c2778ef3898d44fbc4b55cc176260d, type: 3}
+  - name: collect
+    AudioClips:
+    - {fileID: 8300000, guid: ba07f3dedc489c24289c4093c0802a0a, type: 3}
+    - {fileID: 8300000, guid: cee2f4c4226d0d34cb366d843ef35a80, type: 3}
+    - {fileID: 8300000, guid: 201c6afeb0dce9e4d8c0ef29b7fce4dc, type: 3}
 --- !u!1 &1268468501
 GameObject:
   m_ObjectHideFlags: 0
@@ -1949,7 +1958,7 @@ Transform:
   m_GameObject: {fileID: 1467360815}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1967,6 +1976,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 380f8bd81a2a8f043a99861f5f0ba8f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  StopFadingY: -10
+  MaxVolume: 0.4
 --- !u!82 &1467360818
 AudioSource:
   m_ObjectHideFlags: 0
