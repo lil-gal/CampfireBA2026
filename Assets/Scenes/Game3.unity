@@ -1045,7 +1045,6 @@ RectTransform:
   m_Children:
   - {fileID: 1507906927}
   - {fileID: 1867539502}
-  - {fileID: 1831214615}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1278,7 +1277,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 2140219364}
+  - {fileID: 2099295422}
   - {fileID: 640883328}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1326,7 +1325,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 277288c9cf350804294fcfcf07c99afe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CameraTargetScript
-  XLimit: 10
 --- !u!1 &1129951690
 GameObject:
   m_ObjectHideFlags: 0
@@ -1355,7 +1353,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 1
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1621221882}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1571,27 +1569,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   cards:
   - rarity: 70
-    name: Speed Profit
-    benefits: Speed +3
-    demerits: Stealth -1
+    name: Speed boost
+    benefits: Speed+1
+    demerits: Shark-1
     method:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 1268468502}
           m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-          m_MethodName: changeSpeedBy
-          m_Mode: 4
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 3
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 1268468502}
-          m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-          m_MethodName: changeSharkSizeBy
+          m_MethodName: increaseSpeed
           m_Mode: 4
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -1601,253 +1587,37 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-    icon: {fileID: -2983090718515566234, guid: c34039bbafcfb0b4cbb698c789fe9d04, type: 3}
-  - rarity: 5
-    name: Bigger Hands
-    benefits: Magnet +5
-    demerits: 
-    method:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1268468502}
-          m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-          m_MethodName: changeCollectorBy
-          m_Mode: 4
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0.5
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-    icon: {fileID: 4877825377717948546, guid: 4cd69415597b5b341918520bc4dddc21, type: 3}
+    icon: {fileID: 21300000, guid: 66a6fa1f6829dd7448fa03f18f253c84, type: 3}
   - rarity: 25
-    name: Equivalent Exchange
-    benefits: Magnet +1
-    demerits: Speed -1
-    method:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1268468502}
-          m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-          m_MethodName: changeCollectorBy
-          m_Mode: 4
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0.1
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 1268468502}
-          m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-          m_MethodName: changeSpeedBy
-          m_Mode: 4
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: -1
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-    icon: {fileID: 4877825377717948546, guid: 4cd69415597b5b341918520bc4dddc21, type: 3}
-  - rarity: 70
-    name: Hidden Slowpoke
-    benefits: Stealth +2
-    demerits: Speed -1
-    method:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1268468502}
-          m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-          m_MethodName: changeSharkSizeBy
-          m_Mode: 4
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: -2
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 1268468502}
-          m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-          m_MethodName: changeSpeedBy
-          m_Mode: 4
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: -1
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-    icon: {fileID: 2202170769900746405, guid: f88f8d4bafea3aa45b5b2db2d3f9a628, type: 3}
-  - rarity: 25
-    name: Ninja
-    benefits: Stealth +1
-    demerits: 
-    method:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1268468502}
-          m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-          m_MethodName: changeSharkSizeBy
-          m_Mode: 4
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: -1
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-    icon: {fileID: 2202170769900746405, guid: f88f8d4bafea3aa45b5b2db2d3f9a628, type: 3}
-  - rarity: 5
-    name: Speedster
-    benefits: Speed +10
-    demerits: 
-    method:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1268468502}
-          m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-          m_MethodName: changeSpeedBy
-          m_Mode: 4
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 10
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-    icon: {fileID: -2983090718515566234, guid: c34039bbafcfb0b4cbb698c789fe9d04, type: 3}
-  - rarity: 5
-    name: Slowpoke
+    name: Speed boost2
     benefits: 
-    demerits: Speed -10
-    method:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1268468502}
-          m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-          m_MethodName: changeSpeedBy
-          m_Mode: 4
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: -10
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-    icon: {fileID: 21300000, guid: 57464a06e2fc9e14ca8931694c451972, type: 3}
-  - rarity: 70
-    name: small hands
-    benefits: Magnet +1
     demerits: 
     method:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 1268468502}
           m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-          m_MethodName: changeCollectorBy
+          m_MethodName: increaseSpeed
           m_Mode: 4
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
-            m_FloatArgument: 0.1
+            m_FloatArgument: 2
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-    icon: {fileID: 4877825377717948546, guid: 4cd69415597b5b341918520bc4dddc21, type: 3}
-  - rarity: 70
-    name: small speed
-    benefits: Speed +1
+    icon: {fileID: 21300000, guid: 66a6fa1f6829dd7448fa03f18f253c84, type: 3}
+  - rarity: 5
+    name: Speed boost3
+    benefits: 
     demerits: 
     method:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 1268468502}
           m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-          m_MethodName: changeSpeedBy
-          m_Mode: 4
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 1
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-    icon: {fileID: -2983090718515566234, guid: c34039bbafcfb0b4cbb698c789fe9d04, type: 3}
-  - rarity: 70
-    name: Hidden
-    benefits: Stealth +1
-    demerits: 
-    method:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1268468502}
-          m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-          m_MethodName: changeSharkSizeBy
-          m_Mode: 4
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: -1
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-    icon: {fileID: 2202170769900746405, guid: f88f8d4bafea3aa45b5b2db2d3f9a628, type: 3}
-  - rarity: 70
-    name: Open collector
-    benefits: Magnet +1
-    demerits: Stealth -1
-    method:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1268468502}
-          m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-          m_MethodName: changeCollectorBy
-          m_Mode: 4
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 1
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 1268468502}
-          m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-          m_MethodName: changeSharkSizeBy
-          m_Mode: 4
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 1
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-    icon: {fileID: 4877825377717948546, guid: 4cd69415597b5b341918520bc4dddc21, type: 3}
-  - rarity: 25
-    name: Iron
-    benefits: Magnet +3
-    demerits: Speed -1
-    method:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1268468502}
-          m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-          m_MethodName: changeCollectorBy
+          m_MethodName: increaseSpeed
           m_Mode: 4
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -1857,29 +1627,10 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-        - m_Target: {fileID: 1268468502}
-          m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-          m_MethodName: changeSpeedBy
-          m_Mode: 4
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: -1
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-    icon: {fileID: 4877825377717948546, guid: 4cd69415597b5b341918520bc4dddc21, type: 3}
+    icon: {fileID: 21300000, guid: 66a6fa1f6829dd7448fa03f18f253c84, type: 3}
   moveSpeed: 10
   sharkSize: 4
   score: 0
-  ZonePointThresholds:
-  - 100
-  - 250
-  - 500
-  - 1000
-  ZoneSize: 40
-  deepestZoneReached: 0
 --- !u!4 &1268468503
 Transform:
   m_ObjectHideFlags: 0
@@ -2322,20 +2073,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   moveSpeed: 15
-  gameOverScreen: {fileID: 0}
   characterController: {fileID: 1621221881}
   rotateSpeed: 1.5
   backwardsSpeedDivide: 2
-  drag: 5
   gameManager: {fileID: 1268468502}
   upgradePanel: {fileID: 1507906923}
   isAlive: 1
-  isBouncing: 0
-  bounceDuration: 0.6
-  bounceSpeed: 5
-  bounceRotationSpeed: 8
-  lowerBoundaryY: -3.4028235e+38
-  upperBoundaryY: 3.4028235e+38
 --- !u!114 &1621221880
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2531,7 +2274,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1753499096
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2729,11 +2472,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!224 &1831214615 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 3703054140015680099, guid: ce0a0ba46c98ddf4ba9919abe867e8cf, type: 3}
-  m_PrefabInstance: {fileID: 6433364946918368226}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1854858955
 GameObject:
   m_ObjectHideFlags: 0
@@ -2861,7 +2599,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1941807915
 Transform:
   m_ObjectHideFlags: 0
@@ -3008,7 +2746,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &2140219363
+--- !u!1 &2099295421
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3016,8 +2754,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2140219364}
-  - component: {fileID: 2140219365}
+  - component: {fileID: 2099295422}
+  - component: {fileID: 2099295423}
   m_Layer: 0
   m_Name: ItemSpawner
   m_TagString: Untagged
@@ -3025,13 +2763,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2140219364
+--- !u!4 &2099295422
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2140219363}
+  m_GameObject: {fileID: 2099295421}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -1.19451, y: 3.5054, z: 0}
@@ -3040,23 +2778,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1008281384}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2140219365
+--- !u!114 &2099295423
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2140219363}
+  m_GameObject: {fileID: 2099295421}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 08cf9ee4fba7b7e40a236cf9ffa66fc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
   SpawnInto: {fileID: 640883328}
-  CameraObject: {fileID: 228804202}
+  CameraObject: {fileID: 0}
   PreSpawnUnits: 2
   UnitSize: 40
-  MinSpawnDistanceFromPlayer: 10
   SpawningRules:
   - PrefabToSpawn: {fileID: 8801273170047399257, guid: d97e16bddd4ac654fa4d830122ce8813, type: 3}
     MaxY: 0
@@ -3064,48 +2801,36 @@ MonoBehaviour:
     Density: 5
     DensityMultiplier: 1
     Disabled: 0
-    UseZoneBounds: 0
-    ZoneOverride: -1
   - PrefabToSpawn: {fileID: 8801273170047399257, guid: d97e16bddd4ac654fa4d830122ce8813, type: 3}
     MaxY: -20
     MinY: -30
     Density: 2
     DensityMultiplier: 1
     Disabled: 0
-    UseZoneBounds: 0
-    ZoneOverride: -1
   - PrefabToSpawn: {fileID: 5362254705205733122, guid: 1c0759a8e4422804ea95f87c6dabdedc, type: 3}
     MaxY: -15
     MinY: -20
     Density: 1
     DensityMultiplier: 1
     Disabled: 0
-    UseZoneBounds: 0
-    ZoneOverride: -1
   - PrefabToSpawn: {fileID: 8633479932435159403, guid: 3cbc55b0bed01004cafe7e4c008720e1, type: 3}
     MaxY: -18
     MinY: -30
     Density: 0.5
     DensityMultiplier: 1
     Disabled: 0
-    UseZoneBounds: 0
-    ZoneOverride: -1
   - PrefabToSpawn: {fileID: 3149292717361622239, guid: e77f19e49a0505b4791b29580548b8a7, type: 3}
     MaxY: 0
     MinY: -30
     Density: 0.25
     DensityMultiplier: 1
     Disabled: 0
-    UseZoneBounds: 0
-    ZoneOverride: -1
   - PrefabToSpawn: {fileID: 7984441852604815118, guid: ea7442b806cccc6439dc924c3f5a7841, type: 3}
     MaxY: 0
     MinY: -30
     Density: 1
     DensityMultiplier: 1
     Disabled: 0
-    UseZoneBounds: 0
-    ZoneOverride: -1
 --- !u!1001 &6091161307208115809
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3203,103 +2928,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 84472c7774ba416469a855a4750e346c, type: 3}
---- !u!1001 &6433364946918368226
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 686674550}
-    m_Modifications:
-    - target: {fileID: 2796147509275712699, guid: ce0a0ba46c98ddf4ba9919abe867e8cf, type: 3}
-      propertyPath: m_Name
-      value: Image
-      objectReference: {fileID: 0}
-    - target: {fileID: 3703054140015680099, guid: ce0a0ba46c98ddf4ba9919abe867e8cf, type: 3}
-      propertyPath: m_Pivot.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3703054140015680099, guid: ce0a0ba46c98ddf4ba9919abe867e8cf, type: 3}
-      propertyPath: m_Pivot.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3703054140015680099, guid: ce0a0ba46c98ddf4ba9919abe867e8cf, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3703054140015680099, guid: ce0a0ba46c98ddf4ba9919abe867e8cf, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3703054140015680099, guid: ce0a0ba46c98ddf4ba9919abe867e8cf, type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3703054140015680099, guid: ce0a0ba46c98ddf4ba9919abe867e8cf, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3703054140015680099, guid: ce0a0ba46c98ddf4ba9919abe867e8cf, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 1400
-      objectReference: {fileID: 0}
-    - target: {fileID: 3703054140015680099, guid: ce0a0ba46c98ddf4ba9919abe867e8cf, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 3703054140015680099, guid: ce0a0ba46c98ddf4ba9919abe867e8cf, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3703054140015680099, guid: ce0a0ba46c98ddf4ba9919abe867e8cf, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3703054140015680099, guid: ce0a0ba46c98ddf4ba9919abe867e8cf, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3703054140015680099, guid: ce0a0ba46c98ddf4ba9919abe867e8cf, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3703054140015680099, guid: ce0a0ba46c98ddf4ba9919abe867e8cf, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3703054140015680099, guid: ce0a0ba46c98ddf4ba9919abe867e8cf, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3703054140015680099, guid: ce0a0ba46c98ddf4ba9919abe867e8cf, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3703054140015680099, guid: ce0a0ba46c98ddf4ba9919abe867e8cf, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3703054140015680099, guid: ce0a0ba46c98ddf4ba9919abe867e8cf, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 490
-      objectReference: {fileID: 0}
-    - target: {fileID: 3703054140015680099, guid: ce0a0ba46c98ddf4ba9919abe867e8cf, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3703054140015680099, guid: ce0a0ba46c98ddf4ba9919abe867e8cf, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3703054140015680099, guid: ce0a0ba46c98ddf4ba9919abe867e8cf, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: ce0a0ba46c98ddf4ba9919abe867e8cf, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
