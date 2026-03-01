@@ -1326,6 +1326,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 277288c9cf350804294fcfcf07c99afe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CameraTargetScript
+  XLimit: 10
 --- !u!1 &1129951690
 GameObject:
   m_ObjectHideFlags: 0
@@ -1805,9 +1806,80 @@ MonoBehaviour:
             m_BoolArgument: 0
           m_CallState: 2
     icon: {fileID: 2202170769900746405, guid: f88f8d4bafea3aa45b5b2db2d3f9a628, type: 3}
+  - rarity: 70
+    name: Open collector
+    benefits: Magnet +1
+    demerits: Stealth -1
+    method:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1268468502}
+          m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+          m_MethodName: changeSharkSizeBy
+          m_Mode: 4
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 1
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 1268468502}
+          m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+          m_MethodName: changeCollectorBy
+          m_Mode: 4
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 1
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    icon: {fileID: 4877825377717948546, guid: 4cd69415597b5b341918520bc4dddc21, type: 3}
+  - rarity: 25
+    name: Iron
+    benefits: Magnet +3
+    demerits: Speed -1
+    method:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1268468502}
+          m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+          m_MethodName: changeSpeedBy
+          m_Mode: 4
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: -1
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 1268468502}
+          m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+          m_MethodName: changeCollectorBy
+          m_Mode: 4
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 3
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    icon: {fileID: 4877825377717948546, guid: 4cd69415597b5b341918520bc4dddc21, type: 3}
   moveSpeed: 10
   sharkSize: 4
   score: 0
+  ZonePointThresholds:
+  - 100
+  - 250
+  - 500
+  - 1000
+  ZoneSize: 40
+  deepestZoneReached: 0
 --- !u!4 &1268468503
 Transform:
   m_ObjectHideFlags: 0
@@ -2250,12 +2322,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   moveSpeed: 15
+  gameOverScreen: {fileID: 0}
   characterController: {fileID: 1621221881}
   rotateSpeed: 1.5
   backwardsSpeedDivide: 2
+  drag: 5
   gameManager: {fileID: 1268468502}
   upgradePanel: {fileID: 1507906923}
   isAlive: 1
+  isBouncing: 0
+  bounceDuration: 0.6
+  bounceSpeed: 5
+  bounceRotationSpeed: 8
+  lowerBoundaryY: -3.4028235e+38
+  upperBoundaryY: 3.4028235e+38
 --- !u!114 &1621221880
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2976,6 +3056,7 @@ MonoBehaviour:
   CameraObject: {fileID: 0}
   PreSpawnUnits: 2
   UnitSize: 10
+  MinSpawnDistanceFromPlayer: 10
   SpawningRules:
   - PrefabToSpawn: {fileID: 8801273170047399257, guid: d97e16bddd4ac654fa4d830122ce8813, type: 3}
     MaxY: 0
@@ -2983,6 +3064,8 @@ MonoBehaviour:
     Density: 10
     DensityMultiplier: 1
     Disabled: 0
+    UseZoneBounds: 0
+    ZoneOverride: -1
 --- !u!1001 &6091161307208115809
 PrefabInstance:
   m_ObjectHideFlags: 0
